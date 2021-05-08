@@ -1,0 +1,9 @@
+<library path="lib/libwhud_gui">
+  <class name="whud_gui/whud_panel"
+         type="whud_gui::whud_panel"
+         base_class_type="rviz::Panel">
+    <description>
+      WHU-Drones gui.
+    </description>
+  </class>
+</library>

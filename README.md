@@ -1,1 +1,1 @@
-# -whud_gui
+# WHU-Drones GUI
