@@ -4,6 +4,7 @@
 #include <rviz/panel.h>
 
 #include "ui_widget.h"
+#include "whud_basic_control.hpp"
 
 namespace Ui {
 class Widget;
@@ -14,12 +15,14 @@ class whud_panel : public rviz::Panel {
   Q_OBJECT
 
  public:
-  whud_panel(QWidget* parent = 0);
+  whud_panel(QWidget* parent = nullptr);
+  ~whud_panel();
 
   // virtual void load(const rviz::Config& config);
   // virtual void save(rviz::Config config) const;
 
  protected:
-  Ui::Widget* ui;
+  Ui::Widget* ui_ = nullptr;
+  whud_basic_control* basic_control_ = nullptr;
 };
 }  // namespace whud_gui

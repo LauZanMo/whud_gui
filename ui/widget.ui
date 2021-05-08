@@ -6,268 +6,324 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>634</width>
-    <height>451</height>
+    <width>511</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <spacer name="PanelSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>338</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="1">
-    <layout class="QHBoxLayout" name="SysStatusLayout">
-     <item>
-      <widget class="QLabel" name="ConnectLabel">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Disconneted</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="SysStatusSpacer">
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <spacer name="PanelSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
+         <width>338</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
      </item>
-     <item>
-      <widget class="QProgressBar" name="BatteryBar">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="SysStatusLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="value">
-        <number>50</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="BasicControl">
-      <attribute name="title">
-       <string>Basic Control</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <layout class="QGridLayout" name="BasicControlLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="BasicCmdLabel">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Command</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="BasicCmdParam1">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Height(m)</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="BasicCmdParam2">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Speed(m/s)</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QCheckBox" name="ConversionCheckBox">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Conversion</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QComboBox" name="BasicCmdComboBox">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <item>
-            <property name="text">
-             <string>take off</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>land</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>set height</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>set yaw</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="Param1Editor">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="Param2Editor">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QPushButton" name="SendButton">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Send</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="ConnectLabel">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Disconneted</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
        </item>
        <item>
-        <spacer name="BasicControlSpacer">
+        <spacer name="SysStatusSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>128</height>
+           <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QProgressBar" name="BatteryBar">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="value">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
       </layout>
-     </widget>
-     <widget class="QWidget" name="VisionDebug">
-      <attribute name="title">
-       <string>Vision Debug</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="StateMachineDebug">
-      <attribute name="title">
-       <string>State Machine Debug</string>
-      </attribute>
-     </widget>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QTextBrowser" name="OutputBrowser">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>100</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>150</height>
-      </size>
-     </property>
-    </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QSplitter" name="PanelSplitter">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="BasicControl">
+         <attribute name="title">
+          <string>Basic Control</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QGridLayout" name="BasicControlLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="BasicCmdLabel">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Command</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="BasicCmdParam1">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="BasicCmdParam2">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QCheckBox" name="ConversionCheckBox">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Conversion</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QComboBox" name="BasicCmdComboBox">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <item>
+               <property name="text">
+                <string/>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>take off</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>land</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>set height</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>set yaw</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="Param1Editor">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="Param2Editor">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QPushButton" name="SendButton">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Send</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="BasicControlSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>435</width>
+              <height>92</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="VisionDebug">
+         <attribute name="title">
+          <string>Vision Debug</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="StateMachineDebug">
+         <attribute name="title">
+          <string>State Machine Debug</string>
+         </attribute>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="">
+        <layout class="QGridLayout" name="OutputLayout">
+         <item row="0" column="0">
+          <spacer name="OutputSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="ClearButton">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QTextBrowser" name="OutputBrowser">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>500</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
