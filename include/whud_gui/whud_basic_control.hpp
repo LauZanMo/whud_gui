@@ -3,7 +3,7 @@
 
 #include <ros/ros.h>
 
-#include <iostream>
+#include <QTimer>
 
 #include "ui_widget.h"
 
@@ -18,6 +18,12 @@ class whud_basic_control : public QObject {
  private:
   Ui::Widget* ui_;
   ros::NodeHandle nh_;
+
+  ros::Publisher conversion_pub_;
+  ros::Publisher take_off_pub_;
+  ros::Publisher land_pub_;
+  ros::Publisher set_height_pub_;
+  ros::Publisher set_yaw_pub_;
 
   QDoubleValidator* take_off_validator_1_;
   QDoubleValidator* take_off_validator_2_;
@@ -39,6 +45,8 @@ class whud_basic_control : public QObject {
 
   bool ParamCheck(int num);
   void SendBasicCmd(int index);
+
+  void DutyLoop();
 };
 
 #endif  // WHUD_BASIC_CONTROL_HPP

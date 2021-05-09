@@ -1,5 +1,9 @@
 #include "whud_basic_control.hpp"
 
+#include <std_msgs/Float64.h>
+#include <std_msgs/Float64MultiArray.h>
+#include <std_msgs/Bool.h>
+
 whud_basic_control::whud_basic_control(QObject* parent, Ui::Widget* ui)
     : QObject(parent),
       ui_(ui),
@@ -12,6 +16,16 @@ whud_basic_control::whud_basic_control(QObject* parent, Ui::Widget* ui)
       set_yaw_validator_1_(new QDoubleValidator(0.1, 9, 1)),
       set_yaw_validator_2_(new QIntValidator(0, 1)) {
   SetNotation();
+
+  conversion_pub_ = nh_.advertise<std_msgs::Bool>("/mavros/whud_nav/conversion", 1);
+  take_off_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("/mavros/whud_basic/takeoff_height", 1);
+  land_pub_ = nh_.advertise<std_msgs::Float64>("/mavros/whud_basic/land", 1);
+  set_height_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("/mavros/whud_basic/height", 1);
+  set_yaw_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("/mavros/whud_basic/yaw", 1);
+
+  QTimer* duty_timer = new QTimer( this );
+  connect(duty_timer, &QTimer::timeout, this, &whud_basic_control::DutyLoop);
+  duty_timer->start(100);
 }
 
 whud_basic_control::~whud_basic_control() {
@@ -190,4 +204,14 @@ void whud_basic_control::SendBasicCmd(int index) {
       return;
     }
   }
+}
+
+void whud_basic_control::DutyLoop(){
+  std_msgs::Bool a;
+  a.data = false;
+  conversion_pub_.publish(a);
+  std_msgs::Float64MultiArray b;
+  b.data = {0, 0.5};
+  take_off_pub_.publish(b);
+
 }
