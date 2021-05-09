@@ -58,7 +58,7 @@ void whud_basic_control::ChangeComboBox(int index) {
       break;
     // set height
     case 3:
-      SetParamLabel("Relative Height(m)", "Speed(m/s)");
+      SetParamLabel("Height(m)", "Speed(m/s)");
       ClearParamEditor();
       SetParamValidator(set_height_validator_1_, set_height_validator_2_);
       break;
@@ -69,6 +69,9 @@ void whud_basic_control::ChangeComboBox(int index) {
       SetParamValidator(set_yaw_validator_1_, set_yaw_validator_2_);
       break;
     default:
+      ClearParamEditor();
+      ui_->BasicCmdParam1->clear();
+      ui_->BasicCmdParam2->clear();
       break;
   }
 }
@@ -145,6 +148,7 @@ uint8_t whud_basic_control::SendBasicCmd(int index) {
       else {
         take_off_height_ = ui_->Param1Editor->text().toDouble();
         take_off_speed_ = ui_->Param2Editor->text().toDouble();
+        mav_cmd_index_ = 24;
         send_flag++;
         break;
       }
@@ -154,6 +158,7 @@ uint8_t whud_basic_control::SendBasicCmd(int index) {
         break;
       else {
         land_speed_ = ui_->Param1Editor->text().toDouble();
+        mav_cmd_index_ = 23;
         send_flag++;
         break;
       }
@@ -164,6 +169,7 @@ uint8_t whud_basic_control::SendBasicCmd(int index) {
       else {
         set_relative_height_ = ui_->Param1Editor->text().toDouble();
         set_height_speed_ = ui_->Param2Editor->text().toDouble();
+        mav_cmd_index_ = 113;
         send_flag++;
         break;
       }
@@ -174,6 +180,7 @@ uint8_t whud_basic_control::SendBasicCmd(int index) {
       else {
         set_yaw_angle_ = ui_->Param1Editor->text().toDouble();
         set_yaw_type_ = ui_->Param2Editor->text().toDouble();
+        mav_cmd_index_ = 115;
         send_flag++;
         break;
       }
@@ -254,7 +261,7 @@ void whud_basic_control::DutyLoop() {
 
     if (++wait_counter_ <= 30) {
       // output browser update
-      if (ack_index == send_index_ && ack_result == 5) {
+      if (ack_index == mav_cmd_index_ && ack_result == 5) {
         ui_->OutputBrowser->setTextColor(QColor("green"));
         ui_->OutputBrowser->insertPlainText("Send messages OK!\n");
         ui_->OutputBrowser->moveCursor(QTextCursor::End);
@@ -286,7 +293,7 @@ void whud_basic_control::DutyLoop() {
     nh_.getParam("/mavros/whud_basic/ack_cmd_index", ack_index);
     nh_.getParam("/mavros/whud_basic/ack_result", ack_result);
 
-    if (ack_index == send_index_ && ack_result == 0) {
+    if (ack_index == mav_cmd_index_ && ack_result == 0) {
       // output browser update
       ui_->OutputBrowser->setTextColor(QColor("green"));
       ui_->OutputBrowser->insertPlainText("Action done!\n");

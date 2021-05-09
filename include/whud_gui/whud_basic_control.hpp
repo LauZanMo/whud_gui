@@ -40,7 +40,8 @@ class whud_basic_control : public QObject {
 
   bool send_enable_ = false;
   bool send_done_ = false, ack_done_ = false;
-  int send_counter_ = 0, wait_counter_ = 0, send_index_;
+  int send_counter_ = 0, wait_counter_ = 0;
+  int send_index_, mav_cmd_index_;
 
   void SetNotation();
 
