@@ -33,6 +33,15 @@ class whud_basic_control : public QObject {
   QDoubleValidator* set_yaw_validator_1_;
   QIntValidator* set_yaw_validator_2_;
 
+  double take_off_height_, take_off_speed_;
+  double land_speed_;
+  double set_relative_height_, set_height_speed_;
+  double set_yaw_angle_, set_yaw_type_;
+
+  bool send_enable_ = false;
+  bool send_done_ = false, ack_done_ = false;
+  int send_counter_ = 0, wait_counter_ = 0, send_index_;
+
   void SetNotation();
 
   void SetParamLabel(const char* label1, const char* label2);
@@ -44,7 +53,7 @@ class whud_basic_control : public QObject {
                          QIntValidator* validator2);
 
   bool ParamCheck(int num);
-  void SendBasicCmd(int index);
+  uint8_t SendBasicCmd(int index);
 
   void DutyLoop();
 };
