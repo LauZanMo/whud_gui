@@ -8,12 +8,12 @@ whud_basic_control::whud_basic_control(QObject* parent, Ui::Widget* ui)
     : QObject(parent),
       ui_(ui),
       nh_(""),
-      take_off_validator_1_(new QDoubleValidator(0.1, 99, 1)),
+      take_off_validator_1_(new QDoubleValidator(0.1, 9, 1)),
       take_off_validator_2_(new QDoubleValidator(0.1, 9, 1)),
       land_validator_1_(new QDoubleValidator(-9, -0.1, 1)),
-      set_height_validator_1_(new QDoubleValidator(-99, +99, 1)),
+      set_height_validator_1_(new QDoubleValidator(-9, +9, 1)),
       set_height_validator_2_(new QDoubleValidator(0.1, 9, 1)),
-      set_yaw_validator_1_(new QDoubleValidator(0.1, 9, 1)),
+      set_yaw_validator_1_(new QDoubleValidator(-9, 9, 2)),
       set_yaw_validator_2_(new QIntValidator(0, 1)) {
   SetNotation();
 
